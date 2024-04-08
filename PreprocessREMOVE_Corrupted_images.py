@@ -1,5 +1,6 @@
 import os
-
+#I used the following website for reference to get rid of corrupted images
+#https://keras.io/examples/vision/image_classification_from_scratch/
 num_skipped = 0
 data_dir = r'C:\Users\Devon Scheg\Documents\Academics\Classes\ECE 500\Assignments\MiniProject\data\train'
 
