@@ -4,10 +4,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 import PIL
 import tensorflow as tf
-from keras.applications import EfficientNetB7
+from keras.applications import EfficientNetB0
 from tensorflow import keras
 from pathlib import Path
 from keras.models import clone_model
+
+#I used this online resource for help on unfreezing my pretrained efficientnet
+#https://keras.io/examples/vision/image_classification_efficientnet_fine_tuning/
+
 
 data_dir = Path(r'C:\Users\Devon Scheg\Documents\Academics\Classes\ECE 500\Assignments\MiniProject\data\cropped')
 model = tf.keras.models.load_model("B0_best_trained_scrubbedset_model.keras")
@@ -18,7 +22,7 @@ batch_size = 32
 img_height = 224
 img_width = 224
 
-#Fin tuning model
+#Fine tuning model
 def unfreeze_model(model):
     # We unfreeze the top 20 layers while leaving BatchNorm layers frozen
     for layer in model.layers[-20:]:
@@ -82,7 +86,6 @@ val_ds = val_ds.map(lambda x, y: (x, tf.keras.utils.to_categorical(y, num_classe
 
 
 #Creating an early stop 
-#Creating an early stop
 #Reference used https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping
 implement_early_stop = tf.keras.callbacks.EarlyStopping(
     monitor='val_loss',
