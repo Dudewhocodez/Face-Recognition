@@ -8,6 +8,8 @@ from pathlib import Path
 from keras.models import clone_model
 from tensorflow.keras.callbacks import EarlyStopping
 
+#I used this online resource in assisting with my code:
+#https://keras.io/examples/vision/image_classification_efficientnet_fine_tuning/
 
 # A link to the directory that will be used for this (change if small or large train)
 data_dir = Path(r'C:\Users\Devon Scheg\Documents\Academics\Classes\ECE 500\Assignments\MiniProject\data\cropped')
