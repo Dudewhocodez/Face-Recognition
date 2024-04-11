@@ -34,7 +34,7 @@ for i, filename in enumerate(test_image_filenames):
     print(f"Processing image {i+1}/{len(test_image_filenames)}: {filename}")
     #preparation of the image
     img = image.load_img(os.path.join(images_dir, filename), target_size=(height, width)) #model was trainied on 224, 224
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) #model was trained on RGB
+    #img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) #model was trained on RGB
     img_array = image.img_to_array(img) #We need to flatten our image into an array
     img_array_expanded_dims = np.expand_dims(img_array, axis=0) #The model predicts the input to have dimensions (batch_size, width, height, bands) 
 
